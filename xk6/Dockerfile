@@ -1,4 +1,4 @@
-FROM node:18
+FROM --platform=linux/amd64 node:18
 RUN ["apt-get","update"]
 RUN ["apt-get","install","-y","vim"]
 WORKDIR /usr/src/app
