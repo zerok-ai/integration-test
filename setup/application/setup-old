@@ -1,0 +1,84 @@
+#! /bin/bash
+
+setup_mode=$1   # default | anton | clean
+language=$2     # java  | node
+ingress=$3      # nginx | haproxy
+
+showHelp()
+{
+    echo "Usage: "
+    echo "$ ./setup.sh [default|anton|clean] [java|node] [nginx|haproxy]"
+}
+
+if [ "$setup_mode" = 'default' -o "$setup_mode" = 'anton' -o "$setup_mode" = 'clean' ]; then
+    echo "Setting up cluster for ${setup_mode}"
+else
+    showHelp()
+    exit 0
+fi
+
+# don't do the following check if the input is clean
+if [ "$language" = 'node' -o "$language" = 'java' ]; then
+    echo "Setting up ${language} pod"
+else
+    showHelp()
+    exit 0
+fi
+
+# don't do the following check if the input is clean
+if [ "$ingress" = 'nginx' -o "$ingress" = 'haproxy' ]; then
+    echo "Setting up ingress - ${ingress}"
+else
+    showHelp()
+    exit 0
+fi
+
+# ELB_HOSTNAME=$(kubectl get services --namespace ingress${ingress} | grep 'app-ingress'${ingress}'-ingress' | grep 'LoadBalancer' | awk '{print $4}')
+# sed 's/<<ELB_HOSTNAME>>/'"$ELB_HOSTNAME"'/g' default/ingress${ingress}-template.yaml > default/ingress.yaml
+# sed 's/<<ELB_HOSTNAME>>/'"$ELB_HOSTNAME"'/g' anton/highload-ingress${ingress}-template.yaml > anton/highload-ingress.yaml
+
+# Do cleanup
+# kubectl delete -f namespace.yaml --ignore-not-found=true
+# if [ $setup_mode = 'clean' ]; then
+#     exit 0
+# fi
+
+# Do default Setup
+# kubectl apply -f namespace.yaml
+# cd default
+# ./install.sh
+# cd ..
+
+
+# 1. Do default setup
+if [ "$language" = 'node' ]; then
+    kubectl apply -k ./default/language/java
+else # $language" = 'java'
+    kubectl apply -k ./default/language/java
+fi
+
+
+# setup Anton
+# if [ $setup_mode = 'anton' ]; then
+#     kubectl scale deployment/load-test --namespace app --replicas=2
+#     cd anton
+#     ./install.sh
+#     cd ..
+# fi;
+
+#Summary
+echo
+echo "${setup_mode} deployed at:"
+echo "http://"$ELB_HOSTNAME"/app/hc"
+echo
+echo "Fetching Pod info: "
+kubectl get pods --namespace app --show-labels
+
+echo
+echo "More commands: "
+echo "  1. Label all the pods of the app"
+echo "  kubectl label pods --namespace app --selector=app=load-test load=high"
+echo
+echo "  2. Set label to a pod"
+echo "  kubectl label pods --namespace app <name of the pod> load=low --overwrite=true"
+echo

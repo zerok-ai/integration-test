@@ -1,0 +1,75 @@
+af2b716fb95094002ad706bb91833a90-964085468.us-east-2.elb.amazonaws.com
+
+          /\      |‾‾| /‾‾/   /‾‾/   
+     /\  /  \     |  |/  /   /  /    
+    /  \/    \    |     (   /   ‾‾\  
+   /          \   |  |\  \ |  (‾)  | 
+  / __________ \  |__| \__\ \_____/ .io
+
+  execution: local
+     script: script.js
+     output: -
+
+  scenarios: (100.00%) 4 scenarios, 8000 max VUs, 31s max duration (incl. graceful stop):
+           * anton_highcpu: Up to 8.33 iterations/s for 1s over 1 stages (maxVUs: 2000, exec: anton_highcpu, gracefulStop: 30s)
+           * anton_highmem: Up to 13.33 iterations/s for 1s over 1 stages (maxVUs: 2000, exec: anton_highmem, gracefulStop: 30s)
+           * default_highcpu: Up to 8.33 iterations/s for 1s over 1 stages (maxVUs: 2000, exec: default_highcpu, gracefulStop: 30s)
+           * default_highmem: Up to 13.33 iterations/s for 1s over 1 stages (maxVUs: 2000, exec: default_highmem, gracefulStop: 30s)
+
+
+Init              [  43% ] 3435/8000 VUs initialized
+anton_highcpu     [   0% ]
+anton_highmem     [   0% ]
+default_highcpu   [   0% ]
+default_highmem   [   0% ]
+
+Init              [  87% ] 6960/8000 VUs initialized
+anton_highcpu     [   0% ]
+anton_highmem     [   0% ]
+default_highcpu   [   0% ]
+default_highmem   [   0% ]
+
+running (00.8s), 8000/8000 VUs, 0 complete and 0 interrupted iterations
+anton_highcpu     [  78% ] 0005/2000 VUs  0.8s/1s  8 iters/s
+anton_highmem     [  78% ] 0009/2000 VUs  0.8s/1s  13 iters/s
+default_highcpu   [  78% ] 0005/2000 VUs  0.8s/1s  8 iters/s
+default_highmem   [  78% ] 0009/2000 VUs  0.8s/1s  13 iters/s
+
+running (01.8s), 8000/8000 VUs, 21 complete and 0 interrupted iterations
+anton_highcpu   ↓ [ 100% ] 0004/2000 VUs  1s  8 iters/s
+anton_highmem   ↓ [ 100% ] 0007/2000 VUs  1s  13 iters/s
+default_highcpu ↓ [ 100% ] 0004/2000 VUs  1s  8 iters/s
+default_highmem ↓ [ 100% ] 0007/2000 VUs  1s  13 iters/s
+
+running (02.8s), 8000/8000 VUs, 31 complete and 0 interrupted iterations
+anton_highcpu   ↓ [ 100% ] 0004/2000 VUs  1s  8 iters/s
+anton_highmem   ↓ [ 100% ] 0007/2000 VUs  1s  13 iters/s
+default_highcpu ↓ [ 100% ] 0004/2000 VUs  1s  8 iters/s
+default_highmem ↓ [ 100% ] 0007/2000 VUs  1s  13 iters/s
+
+running (03.4s), 0000/8000 VUs, 38 complete and 0 interrupted iterations
+anton_highcpu   ✓ [ 100% ] 0000/2000 VUs  1s  8 iters/s
+anton_highmem   ✓ [ 100% ] 0000/2000 VUs  1s  13 iters/s
+default_highcpu ✓ [ 100% ] 0000/2000 VUs  1s  8 iters/s
+default_highmem ✓ [ 100% ] 0000/2000 VUs  1s  13 iters/s
+
+     ✗ verify homepage text
+      ↳  0% — ✓ 0 / ✗ 38
+
+     checks.....................: 0.00%   ✓ 0         ✗ 38    
+     data_received..............: 0 B     0 B/s
+     data_sent..................: 5.0 kB  1.5 kB/s
+     http_req_blocked...........: avg=901ms    min=224.99ms med=405.14ms max=2.24s    p(90)=2.23s    p(95)=2.24s   
+     http_req_connecting........: avg=872.36ms min=224.87ms med=241.52ms max=2.24s    p(90)=2.23s    p(95)=2.23s   
+     http_req_duration..........: avg=248.21ms min=222.64ms med=233.93ms max=370.87ms p(90)=303.12ms p(95)=339.52ms
+     http_req_failed............: 100.00% ✓ 38        ✗ 0     
+     http_req_receiving.........: avg=0s       min=0s       med=0s       max=0s       p(90)=0s       p(95)=0s      
+     http_req_sending...........: avg=121.44µs min=74µs     med=109.5µs  max=236µs    p(90)=162.6µs  p(95)=177.14µs
+     http_req_tls_handshaking...: avg=0s       min=0s       med=0s       max=0s       p(90)=0s       p(95)=0s      
+     http_req_waiting...........: avg=248.09ms min=222.54ms med=233.83ms max=370.72ms p(90)=303.01ms p(95)=339.38ms
+     http_reqs..................: 38      11.230682/s
+     iteration_duration.........: avg=1.14s    min=455.59ms med=638.06ms max=2.56s    p(90)=2.49s    p(95)=2.53s   
+     iterations.................: 38      11.230682/s
+     vus........................: 8000    min=0       max=8000
+     vus_max....................: 8000    min=3420    max=8000
+

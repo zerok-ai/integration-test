@@ -1,0 +1,6 @@
+bases:
+  - ../base
+nameSuffix: -base
+namespace: isolation-base
+commonLabels:
+  app: myapp-isolation

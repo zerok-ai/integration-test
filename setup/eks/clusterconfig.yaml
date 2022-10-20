@@ -1,0 +1,85 @@
+# A simple example of ClusterConfig object:
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+metadata:
+  name: anton-test
+  region: us-east-2
+  version: "1.22"
+managedNodeGroups:
+  - name: anton-ng-system
+    instanceType: t3.medium
+    minSize: 3
+    maxSize: 10
+    spot: true
+    maxPodsPerNode: 35
+    labels: {
+      role: system
+    }
+  - name: anton-ng-workers
+    instanceType: t3.medium
+    minSize: 1
+    maxSize: 20
+    spot: true
+    maxPodsPerNode: 10
+    labels: {
+      role: worker
+    }
+  - name: anton-ng-k6
+    instanceType: m5.large
+    desiredCapacity: 1
+    minSize: 1
+    maxSize: 1
+    spot: true
+    taints:
+      - {
+          "key": "dedicated",
+          "value": "k6",
+          "effect": "NoSchedule"
+        }
+    ssh:
+      allow: true
+    labels: {
+      role: k6
+    }
+
+# fargateProfiles:
+#   - name: anton-fp-default
+#     selectors:
+#       # All workloads in the "kube-system" Kubernetes namespace will be
+#       # scheduled onto Fargate:
+#       - namespace: kube-system
+#       # All workloads in the "monitoring" Kubernetes namespace will be
+#       # scheduled onto Fargate:
+#       - namespace: monitoring
+#       # All workloads in the "testing" Kubernetes namespace will be
+#       # scheduled onto Fargate:
+#       - namespace: testing
+# vpc:
+#   id: "vpc-014f7d368c6975e30"  # (optional, must match VPC ID used for each subnet below)
+#   cidr: "192.168.0.0/16"       # (optional, must match CIDR used by the given VPC)
+#   subnets:
+#     # must provide 'private' and/or 'public' subnets by availibility zone as shown
+#     private:
+#       us-east-2a:
+#         id: "subnet-0dddddf1abe3059e7"
+#         cidr: "192.168.96.0/19" # (optional, must match CIDR used by the given subnet)
+
+#       us-east-2b:
+#         id: "subnet-03e70663077f6890c"
+#         cidr: "192.168.160.0/19"  # (optional, must match CIDR used by the given subnet)
+
+#       us-east-2c:
+#         id: "subnet-096489d3b6f6cd83c"
+#         cidr: "192.168.128.0/19"   # (optional, must match CIDR used by the given subnet)
+#     public:
+#       us-east-2a:
+#         id: "subnet-02785443ec870e89f"
+#         cidr: "192.168.0.0/19" # (optional, must match CIDR used by the given subnet)
+
+#       us-east-2b:
+#         id: "subnet-058777c877a9344d9"
+#         cidr: "192.168.64.0/19"  # (optional, must match CIDR used by the given subnet)
+
+#       us-east-2c:
+#         id: "subnet-0795b3b2de56db28f"
+#         cidr: "192.168.32.0/19"   # (optional, must match CIDR used by the given subnet)

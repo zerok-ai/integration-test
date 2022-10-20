@@ -1,0 +1,25 @@
+{
+    "containers": [
+        {
+            "name": "load-test",
+            "image": "301129966109.dkr.ecr.us-east-2.amazonaws.com/javaexample",
+            "imagePullPolicy": "Always",
+            "ports": [
+                {
+                    "name": "m-http",
+                    "containerPort": 3000
+                }
+            ],
+            "resources": {
+                "requests": {
+                    "cpu": "150m",
+                    "memory": "340Mi"
+                },
+                "limits": {
+                    "cpu": "170m",
+                    "memory": "400Mi"
+                }
+            }
+        }
+    ]
+}

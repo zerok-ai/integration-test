@@ -1,0 +1,183 @@
+====================================================================================================
+=       Status quo:
+====================================================================================================
+-------------------------------
+Failure: 1800
+-------------------------------  
+scenarios: (100.00%) 2 scenarios, 4000 max VUs, 9m30s max duration (incl. graceful stop):
+           * highcpu: Up to 30.00 iterations/s for 9m0s over 4 stages (maxVUs: 2000, exec: highcpu, gracefulStop: 30s)
+           * highcpu1: Up to 30.00 iterations/s for 9m0s over 4 stages (maxVUs: 2000, exec: highcpu1, gracefulStop: 30s)
+
+running (7m11.5s), 0000/4000 VUs, 15678 complete and 1800 interrupted iterations
+highcpu  ✗ [=============================>--------] 0134/2000 VUs  7m11.5s/9m0s  30 iters/s
+highcpu1 ✗ [=============================>--------] 0121/2000 VUs  7m11.5s/9m0s  30 iters/s
+
+     ✗ verify homepage text
+      ↳  99% — ✓ 15668 / ✗ 55
+
+     checks.........................: 99.68% ✓ 31299     ✗ 98
+     custom_highcpu_duration........: avg=6278.156298 min=7.898359 med=85.271451 max=59015.461336 p(90)=20124.599473 p(95)=26248.805001
+     custom_highcpu_waiting.........: avg=6278.059932 min=7.808811 med=85.180706 max=59015.363838 p(90)=20124.511624 p(95)=26248.702739
+     custom_highcpu1_duration.......: avg=6072.053168 min=8.10234  med=72.281118 max=59512.906903 p(90)=19656.87844  p(95)=25061.615378
+     custom_highcpu1_waiting........: avg=6071.949973 min=8.011468 med=72.186279 max=59512.797512 p(90)=19656.77689  p(95)=25061.517244
+     data_received..................: 7.0 MB 16 kB/s
+     data_sent......................: 5.9 MB 14 kB/s
+     http_req_blocked...............: avg=703.27µs    min=211.55µs med=473.02µs  max=24.74ms      p(90)=1.2ms        p(95)=1.24ms
+     http_req_connecting............: avg=651.4µs     min=165.63µs med=420.63µs  max=24.68ms      p(90)=1.15ms       p(95)=1.18ms
+     http_req_duration..............: avg=6.34s       min=7.89ms   med=82.02ms   max=59.97s       p(90)=20.05s       p(95)=26.08s
+       { expected_response:true }...: avg=6.19s       min=7.89ms   med=80.02ms   max=59.51s       p(90)=19.92s       p(95)=25.68s
+     http_req_failed................: 0.31%  ✓ 98        ✗ 31299
+     http_req_receiving.............: avg=57.03µs     min=0s       med=55.24µs   max=307.8µs      p(90)=68.66µs      p(95)=73.69µs
+     http_req_sending...............: avg=42.55µs     min=27.6µs   med=39.75µs   max=260.4µs      p(90)=54.83µs      p(95)=60.05µs
+     http_req_tls_handshaking.......: avg=0s          min=0s       med=0s        max=0s           p(90)=0s           p(95)=0s
+     http_req_waiting...............: avg=6.34s       min=7.8ms    med=81.94ms   max=59.97s       p(90)=20.05s       p(95)=26.08s
+     http_reqs......................: 31397  72.759337/s
+     iteration_duration.............: avg=7.28s       min=1s       med=1.08s     max=1m0s         p(90)=20.96s       p(95)=26.98s
+     iterations.....................: 31309  72.555406/s
+     vus............................: 4000   min=0       max=4000
+     vus_max........................: 4000   min=867     max=4000
+
+
+
+-------------------------------
+Successful: 1200
+-------------------------------  
+
+  scenarios: (100.00%) 2 scenarios, 4000 max VUs, 9m30s max duration (incl. graceful stop):
+           * highcpu: Up to 20.00 iterations/s for 9m0s over 4 stages (maxVUs: 2000, exec: highcpu, gracefulStop: 30s)
+           * highcpu1: Up to 20.00 iterations/s for 9m0s over 4 stages (maxVUs: 2000, exec: highcpu1, gracefulStop: 30s)
+
+Unable to listen on port 9090: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 127.0.0.1:9090: bind: address already in use unable to create listener: Error listen tcp6 [::1]:9090: bind: address already in use]
+error: unable to listen on any of the requested ports: [{9090 9090}]
+
+running (9m17.5s), 0000/4000 VUs, 17996 complete and 0 interrupted iterations
+highcpu  ✓ [======================================] 0000/2000 VUs  9m0s  20 iters/s
+highcpu1 ✓ [======================================] 0000/2000 VUs  9m0s  20 iters/s
+
+     ✓ verify homepage text
+
+     checks.........................: 100.00% ✓ 35992     ✗ 0
+     custom_highcpu_duration........: avg=1607.916103 min=9.756996 med=20.071751 max=35139.320783 p(90)=6712.286231 p(95)=10109.060492
+     custom_highcpu_waiting.........: avg=1607.810849 min=9.634276 med=19.96235  max=35139.208178 p(90)=6712.171937 p(95)=10108.972744
+     custom_highcpu1_duration.......: avg=1571.006278 min=9.564207 med=19.488093 max=39376.202409 p(90)=6503.501849 p(95)=9688.454967
+     custom_highcpu1_waiting........: avg=1570.901071 min=9.462005 med=19.390049 max=39376.089351 p(90)=6503.400908 p(95)=9688.364155
+     data_received..................: 8.0 MB  14 kB/s
+     data_sent......................: 6.4 MB  12 kB/s
+     http_req_blocked...............: avg=725.41µs    min=181.6µs  med=495.54µs  max=22.39ms      p(90)=1.22ms      p(95)=1.25ms
+     http_req_connecting............: avg=669.89µs    min=143.87µs med=439.92µs  max=22.32ms      p(90)=1.16ms      p(95)=1.19ms
+     http_req_duration..............: avg=1.58s       min=9.56ms   med=19.72ms   max=39.37s       p(90)=6.64s       p(95)=9.88s
+       { expected_response:true }...: avg=1.58s       min=9.56ms   med=19.72ms   max=39.37s       p(90)=6.64s       p(95)=9.88s
+     http_req_failed................: 0.00%   ✓ 0         ✗ 35992
+     http_req_receiving.............: avg=59.19µs     min=25.78µs  med=56.48µs   max=400.13µs     p(90)=71.83µs     p(95)=77.5µs
+     http_req_sending...............: avg=46.03µs     min=23.62µs  med=43.72µs   max=1.11ms       p(90)=62.26µs     p(95)=66.99µs
+     http_req_tls_handshaking.......: avg=0s          min=0s       med=0s        max=0s           p(90)=0s          p(95)=0s
+     http_req_waiting...............: avg=1.58s       min=9.46ms   med=19.61ms   max=39.37s       p(90)=6.64s       p(95)=9.89s
+     http_reqs......................: 35992   64.564062/s
+     iteration_duration.............: avg=2.58s       min=1.01s    med=1.02s     max=40.37s       p(90)=7.64s       p(95)=10.88s
+     iterations.....................: 35989   64.558681/s
+     vus............................: 4000    min=0       max=4000
+     vus_max........................: 4000    min=750     max=4000
+
+
+====================================================================================================
+=       With Anton:
+====================================================================================================
+
+-------------------------------
+Successful: 1800
+-------------------------------  
+  'highcpu' : [
+    { duration: '1m', target: 500 },
+    { duration: '2m', target: 1000 },
+    { duration: '2m', target: 1800 },
+    { duration: '4m', target: 1800 },
+  ],
+
+  'highcpu1' : [
+    { duration: '1m', target: 500 },
+    { duration: '2m', target: 1000 },
+    { duration: '2m', target: 1800 },
+    { duration: '4m', target: 1800 },
+  ]
+
+scenarios: (100.00%) 2 scenarios, 4000 max VUs, 9m30s max duration (incl. graceful stop):
+           * highcpu: Up to 30.00 iterations/s for 9m0s over 4 stages (maxVUs: 2000, exec: highcpu, gracefulStop: 30s)
+           * highcpu1: Up to 30.00 iterations/s for 9m0s over 4 stages (maxVUs: 2000, exec: highcpu1, gracefulStop: 30s)
+running (9m01.0s), 0000/4000 VUs, 23992 complete and 0 interrupted iterations
+highcpu  ✓ [======================================] 0000/2000 VUs  9m0s  30 iters/s
+highcpu1 ✓ [======================================] 0000/2000 VUs  9m0s  30 iters/s
+
+     ✓ verify homepage text
+
+     checks.........................: 100.00% ✓ 47984     ✗ 0
+     custom_highcpu_duration........: avg=10.219225 min=7.895703 med=9.825388 max=48.098411  p(90)=11.542969 p(95)=13.12774
+     custom_highcpu_waiting.........: avg=10.122637 min=7.80916  med=9.727948 max=48.009287  p(90)=11.44905  p(95)=13.019346
+     custom_highcpu1_duration.......: avg=10.431292 min=8.338481 med=9.892297 max=234.563817 p(90)=11.683451 p(95)=13.337446
+     custom_highcpu1_waiting........: avg=10.327118 min=8.222398 med=9.788397 max=234.469886 p(90)=11.587286 p(95)=13.234236
+     data_received..................: 11 MB   20 kB/s
+     data_sent......................: 8.6 MB  16 kB/s
+     http_req_blocked...............: avg=714.73µs  min=185.18µs med=484.57µs max=22.97ms    p(90)=1.21ms    p(95)=1.24ms
+     http_req_connecting............: avg=661.09µs  min=150.97µs med=430.63µs max=22.89ms    p(90)=1.15ms    p(95)=1.19ms
+     http_req_duration..............: avg=10.32ms   min=7.89ms   med=9.85ms   max=234.56ms   p(90)=11.61ms   p(95)=13.22ms
+       { expected_response:true }...: avg=10.32ms   min=7.89ms   med=9.85ms   max=234.56ms   p(90)=11.61ms   p(95)=13.22ms
+     http_req_failed................: 0.00%   ✓ 0         ✗ 47984
+     http_req_receiving.............: avg=54.69µs   min=24.77µs  med=52.74µs  max=1.81ms     p(90)=65.63µs   p(95)=71.78µs
+     http_req_sending...............: avg=45.68µs   min=21.93µs  med=43.12µs  max=273.14µs   p(90)=62.03µs   p(95)=67.22µs
+     http_req_tls_handshaking.......: avg=0s        min=0s       med=0s       max=0s         p(90)=0s        p(95)=0s
+     http_req_waiting...............: avg=10.22ms   min=7.8ms    med=9.75ms   max=234.46ms   p(90)=11.51ms   p(95)=13.11ms
+     http_reqs......................: 47984   88.693295/s
+     iteration_duration.............: avg=1.01s     min=1s       med=1.01s    max=1.23s      p(90)=1.01s     p(95)=1.01s
+     iterations.....................: 47950   88.63045/s
+     vus............................: 4000    min=0       max=4000
+     vus_max........................: 4000    min=898     max=4000
+  
+
+
+-------------------------------
+Failed: 1800
+-------------------------------  
+  'highcpu' : [
+    { duration: '1m', target: 500 },
+    { duration: '1m', target: 1000 },
+    { duration: '1m', target: 1800 },
+    { duration: '2m', target: 1800 },
+  ],
+
+  'highcpu1' : [
+    { duration: '1m', target: 500 },
+    { duration: '1m', target: 1000 },
+    { duration: '1m', target: 1800 },
+    { duration: '2m', target: 1800 },
+  ]
+
+running (4m58.9s), 0000/4000 VUs, 10754 complete and 1674 interrupted iterations
+highcpu  ✗ [====================================>-] 0127/2000 VUs  4m58.9s/5m0s  30 iters/s
+highcpu1 ✗ [====================================>-] 0126/2000 VUs  4m58.9s/5m0s  30 iters/s
+
+     ✗ verify homepage text
+      ↳  99% — ✓ 10788 / ✗ 13
+
+     checks.........................: 99.87% ✓ 21555     ✗ 26
+     custom_highcpu_duration........: avg=7680.446282 min=8.112622 med=3988.580157 max=58809.504946 p(90)=21501.511231 p(95)=23567.596869
+     custom_highcpu_waiting.........: avg=7680.336382 min=7.967428 med=3987.342523 max=58809.381612 p(90)=21501.389993 p(95)=23551.086734
+     custom_highcpu1_duration.......: avg=7825.25592  min=8.375752 med=3399.825998 max=59171.801514 p(90)=20254.887666 p(95)=25225.83186
+     custom_highcpu1_waiting........: avg=7825.14791  min=8.241039 med=3399.725976 max=59171.720282 p(90)=20254.804015 p(95)=25225.7373
+     data_received..................: 4.8 MB 16 kB/s
+     data_sent......................: 4.1 MB 14 kB/s
+     http_req_blocked...............: avg=1.91ms      min=182.26µs med=496.56µs    max=843ms        p(90)=1.22ms       p(95)=1.27ms
+     http_req_connecting............: avg=1.86ms      min=140.8µs  med=440.87µs    max=842.91ms     p(90)=1.16ms       p(95)=1.21ms
+     http_req_duration..............: avg=7.81s       min=8.11ms   med=3.71s       max=1m0s         p(90)=21.01s       p(95)=24.31s
+       { expected_response:true }...: avg=7.77s       min=8.11ms   med=3.69s       max=59.17s       p(90)=20.97s       p(95)=24.21s
+     http_req_failed................: 0.12%  ✓ 26        ✗ 21556
+     http_req_receiving.............: avg=59.31µs     min=0s       med=56.32µs     max=1.23ms       p(90)=72.04µs      p(95)=78.91µs
+     http_req_sending...............: avg=49.56µs     min=24.21µs  med=44.4µs      max=1.7ms        p(90)=68.35µs      p(95)=77.77µs
+     http_req_tls_handshaking.......: avg=0s          min=0s       med=0s          max=0s           p(90)=0s           p(95)=0s
+     http_req_waiting...............: avg=7.81s       min=7.96ms   med=3.71s       max=1m0s         p(90)=21.01s       p(95)=24.31s
+     http_reqs......................: 21582  72.194844/s
+     iteration_duration.............: avg=8.74s       min=1s       med=4.6s        max=1m0s         p(90)=21.95s       p(95)=25.24s
+     iterations.....................: 21486  71.87371/s
+     vus............................: 4000   min=0       max=4000
+     vus_max........................: 4000   min=936     max=4000
+
+
+
