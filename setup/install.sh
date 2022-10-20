@@ -17,16 +17,16 @@ then
 else
     if [ -d $clusterProvider ]
     then
-        # install cluster
-        sh ./$clusterProvider/install.sh
+        # # install cluster
+        # sh ./$clusterProvider/install.sh
         
         # install commons
         sh $setupfolder/common/install.sh
 
-        # install services
-        cd $setupfolder/application
-        ./setup.sh apply
-        cd $setupfolder
+        # # install services
+        # cd $setupfolder/application/SampleApp
+        # ./setup.sh apply
+        # cd $setupfolder
         
         # install loadtest
         kubectl apply -k load-test

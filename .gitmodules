@@ -1,0 +1,3 @@
+[submodule "setup/application/SampleApp"]
+	path = setup/application/SampleApp
+	url = git@github.com:zerok-ai/SampleApp.git

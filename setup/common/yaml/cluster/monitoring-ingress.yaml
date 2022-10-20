@@ -9,7 +9,7 @@ metadata:
     nginx.ingress.kubernetes.io/use-regex: "true"
 spec:
   rules:
-  - host: demo.zerok.ai
+  - host: ct-monitor.getanton.com
     http:
       paths:
       - backend:

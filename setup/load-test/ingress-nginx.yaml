@@ -9,7 +9,7 @@ metadata:
     # nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   rules:
-  - host: load-test.zerok.ai
+  - host: ct-load-generator.getanton.com
     http:
       paths:
       - backend:

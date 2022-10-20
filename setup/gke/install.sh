@@ -26,7 +26,7 @@ fi
 
 if [ -z "$cluster" ]
 then
-   cluster="zerok-test-cluster"
+   cluster="zerok-concurrency-test-cluster"
 fi
 
 #create cluster

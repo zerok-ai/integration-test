@@ -1,6 +1,6 @@
 # install and configure kubernetes addons
 echo '###################### Installing addons'
-# sh $setupfolder/common/install-and-configure-kubernetes-addons.sh
+sh $setupfolder/common/install-and-configure-kubernetes-addons.sh
 
 # install prometheus and grafana
 echo '###################### Installing prometheus and grafana'
