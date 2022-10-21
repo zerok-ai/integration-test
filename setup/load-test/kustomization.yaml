@@ -1,6 +1,5 @@
 resources:
   - namespace.yaml
-  - deployment-gke.yaml
   - service.yaml
   - service-monitor.yaml
   - ingress-nginx.yaml
